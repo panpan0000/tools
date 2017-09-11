@@ -15,14 +15,14 @@ name: default
 # s2600tp - Rinjin TP
 # s2600wtt - Hydra, Python
 #
-type: dell_r730
+type: quanta_t41 
 
 compute:
 
     cpu:
         #Set node cpu num, the default value is 2
         #
-        quantities: 2
+        quantities: 4
 
         #Set node cpu type, the default value is Haswell
         #Supported type:
@@ -43,7 +43,7 @@ compute:
         #Set node memory size, the unit is MB.
         #The default vaule is 512MB
         #
-        size: 4096
+        size: 8192
 
     storage_backend:
         #Set drive list and define drive attributes
@@ -68,11 +68,6 @@ compute:
             network_name: br0
             device: e1000
            
-        -
-            network_mode: bridge
-            network_name: br1
-            device: e1000
-
     # cdrom: /dev/sr0
 bmc:
-    interface: ens192
+    interface: br0

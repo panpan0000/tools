@@ -1,21 +1,15 @@
 {
     "variables": {
         "disk_size": "40960",
-        "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04-server-amd64.iso",
+        "iso_url": "http://releases.ubuntu.com/16.04/ubuntu-16.04.3-server-amd64.iso",
         "archive": "vmware-infrasim",
         "gui_disable": "true",
-        "memsize": "8192",
+        "memsize": "9216",
         "coresPerSocket": "1",
-        "numvcpus": "2",
+        "numvcpus": "4",
         "nic_name": "vmxnet3",
         "nic0_number": "160",
-        "network0": "ADMIN",
-        "nic1_number": "192",
-        "network1": "BMC",
-        "nic2_number": "224",
-        "network2": "CONTROL",
-        "nic3_number": "256",
-        "network3": "DATA"
+        "network0": "ADMIN"
     },
     "provisioners": [
         {
@@ -76,7 +70,7 @@
             "disk_size": "{{ user `disk_size` }}",
             "guest_os_type": "ubuntu-64",
             "http_directory": "http",
-            "iso_checksum": "23e97cd5d4145d4105fbf29878534049",
+            "iso_checksum": "10fcd20619dce11fe094e960c85ba4a9",
             "iso_checksum_type": "md5",
             "iso_url": "{{ user `iso_url` }}",
             "output_directory": "{{ user `archive` }}",
@@ -96,19 +90,7 @@
                 "ethernet0.networkName": "{{ user `network0` }}",
                 "ethernet0.virtualDev": "{{ user `nic_name` }}",
                 "ethernet0.present": "TRUE",
-                "ethernet0.pcislotnumber": "{{ user `nic0_number` }}",
-                "ethernet1.networkName": "{{ user `network1` }}",
-                "ethernet1.virtualDev": "{{ user `nic_name` }}",
-                "ethernet1.present": "TRUE",
-                "ethernet1.pcislotnumber": "{{ user `nic1_number` }}",
-                "ethernet2.networkName": "{{ user `network2` }}",
-                "ethernet2.virtualDev": "{{ user `nic_name` }}",
-                "ethernet2.present": "TRUE",
-                "ethernet2.pcislotnumber": "{{ user `nic2_number` }}",
-                "ethernet3.networkName": "{{ user `network3` }}",
-                "ethernet3.virtualDev": "{{ user `nic_name` }}",
-                "ethernet3.present": "TRUE",
-                "ethernet3.pcislotnumber": "{{ user `nic3_number` }}"
+                "ethernet0.pcislotnumber": "{{ user `nic0_number` }}"
             }
         }
     ]
